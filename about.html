@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Appleeders Technologies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover::after {
+            transform: scaleX(1);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            opacity: 0;
+            border-radius: 8px;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .nav-links a:hover::before {
+            opacity: 1;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="85" cy="25" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="15" cy="85" r="2.5" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            clip-path: polygon(0 100%, 100% 0%, 100% 100%);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-100vh) rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-3px);
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 4rem;
+            background: linear-gradient(135deg, #2d3748, #4a5568);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .company-overview {
+            background: white;
+            border-radius: 25px;
+            padding: 4rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin-bottom: 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .company-overview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .company-overview p {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .highlight-text {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-bottom: 5rem;
+        }
+
+        .mission-card, .vision-card {
+            background: white;
+            border-radius: 25px;
+            padding: 4rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-card::before, .vision-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .mission-card:hover, .vision-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .services-overview {
+            background: white;
+            border-radius: 25px;
+            padding: 4rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin-bottom: 5rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-item {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-item:hover::before {
+            left: 100%;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .service-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .tech-stack {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 25px;
+            padding: 4rem;
+            margin-bottom: 5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-stack::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tech-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .tech-item i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .timeline-section {
+            background: white;
+            border-radius: 25px;
+            padding: 4rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin-bottom: 5rem;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 4px solid white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -10px;
+        }
+
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonials-section {
+            background: white;
+            border-radius: 25px;
+            padding: 4rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin-bottom: 5rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 6rem;
+            color: #667eea;
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            color: #4a5568;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .author-info h5 {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info span {
+            color: #667eea;
+            font-size: 0.9rem;
+        }
+
+        .values-section {
+            background: white;
+            border-radius: 25px;
+            padding: 4rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin-bottom: 5rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .value-item {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .value-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.15);
+        }
+
+        .value-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .value-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #2d3748;
+        }
+
+        .value-description {
+            color: #4a5568;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .team-section {
+            background: white;
+            border-radius: 25px;
+            padding: 4rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .team-image {
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin: 3rem auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .team-image:hover {
+            transform: scale(1.02);
+        }
+
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+
+        .stat-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+            50% { transform: scale(1.1) rotate(180deg); opacity: 1; }
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 5rem;
+            border-radius: 25px;
+            text-align: center;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="30" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="70" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="30" cy="80" r="1.8" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 15s infinite linear;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1.5rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            background: #f1f5f9;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2d3748, #4a5568);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 5rem;
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .footer-section a {
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .company-overview, .values-section, .team-section, .services-overview, .timeline-section, .testimonials-section {
+                padding: 2.5rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                text-align: left;
+                padding-left: 4rem;
+            }
+
+            .timeline-item::before {
+                left: 10px !important;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Appleeders Technologies</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">THE WORLD'S LEADING SOFTWARE DEVELOPMENT COMPANY</h1>
+                <p class="hero-subtitle">Transforming ideas into innovative digital solutions that drive success and shape the future of technology</p>
+                <div class="hero-cta">
+                    <a href="#services" class="btn-primary">Explore Our Services</a>
+                    <a href="#contact" class="btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="section">
+            <div class="company-overview fade-in">
+                <h2 class="section-title">About Appleeders Technologies</h2>
+                <p>Established in <span class="highlight-text">2018</span>, Appleeders Technologies stands at the forefront of software innovation, delivering cutting-edge solutions that empower businesses worldwide. We specialize in creating robust, scalable, and user-centric applications that transform the way organizations operate.</p>
+                <p>Our team of <span class="highlight-text">expert developers, designers, and strategists</span> work collaboratively to bring your vision to life, ensuring every project exceeds expectations and drives measurable results for your business.</p>
+                <p>With a commitment to excellence and a passion for technology, we continue to push boundaries and set new standards in the software development industry, serving clients across <span class="highlight-text">25+ countries</span> with innovative solutions.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="mission-vision">
+                <div class="mission-card slide-in-left">
+                    <h3 class="card-title">
+                        <i class="fas fa-rocket card-icon"></i>
+                        MISSION
+                    </h3>
+                    <p>Our mission is to empower businesses with innovative software solutions that drive growth, efficiency, and success. We are dedicated to delivering exceptional quality, fostering long-term partnerships, and creating technology that makes a meaningful impact on our clients' operations and their customers' experiences.</p>
+                </div>
+                <div class="vision-card slide-in-right">
+                    <h3 class="card-title">
+                        <i class="fas fa-eye card-icon"></i>
+                        VISION
+                    </h3>
+                    <p>To become the global leader in software development, recognized for our innovation, reliability, and transformative solutions. We envision a future where technology seamlessly integrates with business processes, creating unprecedented opportunities for growth and success across industries worldwide.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="services-overview fade-in">
+                <h2 class="section-title">Our Core Services</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <i class="fas fa-mobile-alt service-icon"></i>
+                        <h4 class="service-title">Mobile App Development</h4>
+                        <p>Native and cross-platform mobile applications for iOS and Android, delivering exceptional user experiences.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-globe service-icon"></i>
+                        <h4 class="service-title">Web Development</h4>
+                        <p>Modern, responsive web applications using the latest technologies and frameworks for optimal performance.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-cloud service-icon"></i>
+                        <h4 class="service-title">Cloud Solutions</h4>
+                        <p>Scalable cloud infrastructure and migration services to enhance efficiency and reduce operational costs.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-robot service-icon"></i>
+                        <h4 class="service-title">AI & Machine Learning</h4>
+                        <p>Intelligent automation and predictive analytics solutions to drive data-driven decision making.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-shield-alt service-icon"></i>
+                        <h4 class="service-title">Cybersecurity</h4>
+                        <p>Comprehensive security solutions to protect your digital assets and ensure compliance.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-cogs service-icon"></i>
+                        <h4 class="service-title">DevOps & Automation</h4>
+                        <p>Streamlined development workflows and automated deployment processes for faster delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="tech-stack fade-in">
+                <h2 class="section-title" style="color: white;">Our Technology Stack</h2>
+                <p style="text-align: center; font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;">
+                    We leverage cutting-edge technologies to build robust, scalable, and future-ready solutions
+                </p>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <i class="fab fa-react"></i>
+                        <span>React</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-node-js"></i>
+                        <span>Node.js</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-aws"></i>
+                        <span>AWS</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-docker"></i>
+                        <span>Docker</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-database"></i>
+                        <span>MongoDB</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-angular"></i>
+                        <span>Angular</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-js-square"></i>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="timeline-section fade-in">
+                <h2 class="section-title">Our Journey</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2018</div>
+                            <h4>Company Founded</h4>
+                            <p>Started with a vision to transform businesses through innovative software solutions.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2019</div>
+                            <h4>First Major Client</h4>
+                            <p>Successfully delivered our first enterprise-level application, establishing our reputation for quality.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2020</div>
+                            <h4>Team Expansion</h4>
+                            <p>Grew our team to 25+ professionals and expanded our service offerings.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2021</div>
+                            <h4>Global Reach</h4>
+                            <p>Extended our services internationally, serving clients across multiple continents.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2022</div>
+                            <h4>Innovation Awards</h4>
+                            <p>Received recognition for our innovative solutions and exceptional client service.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2024</div>
+                            <h4>Industry Leader</h4>
+                            <p>Established as a leading software development company with 500+ successful projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="testimonials-section fade-in">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Appleeders Technologies transformed our business operations with their innovative software solution. Their team's expertise and dedication exceeded our expectations."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JD</div>
+                            <div class="author-info">
+                                <h5>John Davidson</h5>
+                                <span>CEO, TechCorp Inc.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "The mobile app they developed for us has been a game-changer. User engagement increased by 300% and our revenue grew significantly."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SM</div>
+                            <div class="author-info">
+                                <h5>Sarah Mitchell</h5>
+                                <span>Founder, RetailPlus</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Their cloud migration services helped us reduce costs by 40% while improving performance. Truly exceptional service and support."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">RK</div>
+                            <div class="author-info">
+                                <h5>Robert Kim</h5>
+                                <span>CTO, Global Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="values-section fade-in">
+                <h2 class="section-title">CULTURE & VALUES BASED ON SIX FUNDAMENTAL PRINCIPLES</h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <i class="fas fa-handshake value-icon"></i>
+                        <h4 class="value-title">Honesty</h4>
+                        <p class="value-description">We build trust through transparent communication and honest practices in all our client relationships and internal operations.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-lightbulb value-icon"></i>
+                        <h4 class="value-title">Cultural Innovation</h4>
+                        <p class="value-description">We foster a culture of creativity and innovation, encouraging our team to think outside the box and embrace new technologies.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-door-open value-icon"></i>
+                        <h4 class="value-title">Open Doors</h4>
+                        <p class="value-description">We maintain an open-door policy that promotes collaboration, knowledge sharing, and continuous learning across all levels.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-balance-scale value-icon"></i>
+                        <h4 class="value-title">Availability</h4>
+                        <p class="value-description">Our team remains accessible and responsive, ensuring our clients receive the support they need when they need it most.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-shield-alt value-icon"></i>
+                        <h4 class="value-title">Security & Integrity</h4>
+                        <p class="value-description">We prioritize data security and maintain the highest standards of integrity in all our development practices and client interactions.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-certificate value-icon"></i>
+                        <h4 class="value-title">Client Satisfaction</h4>
+                        <p class="value-description">We are committed to exceeding client expectations through quality deliverables and exceptional service that drives their success.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="stats-section fade-in">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Expert Developers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">99%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="team-section fade-in">
+                <h2 class="section-title">Our Amazing Team</h2>
+                <p style="font-size: 1.3rem; color: #4a5568; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    Meet the passionate professionals who make innovation possible. Our diverse team of experts brings together creativity, technical excellence, and industry experience to deliver outstanding results for our clients worldwide.
+                </p>
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDkwMCA1MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIiBmaWxsPSJsaW5lYXItZ3JhZGllbnQoMTM1ZGVnLCAjZjVmN2ZhIDAlLCAjYzNjZmUyIDEwMCUpIi8+CjxjaXJjbGUgY3g9IjEyMCIgY3k9IjE4MCIgcj0iNTAiIGZpbGw9IiM2NjdFRUEiLz4KPGNpcmNsZSBjeD0iMjQwIiBjeT0iMTgwIiByPSI1MCIgZmlsbD0iIzc2NEJBMiIvPgo8Y2lyY2xlIGN4PSIzNjAiIGN5PSIxODAiIHI9IjUwIiBmaWxsPSIjNjY3RUVBIi8+CjxjaXJjbGUgY3g9IjQ4MCIgY3k9IjE4MCIgcj0iNTAiIGZpbGw9IiM3NjRCQTIiLz4KPGNpcmNsZSBjeD0iNjAwIiBjeT0iMTgwIiByPSI1MCIgZmlsbD0iIzY2N0VFQSIvPgo8Y2lyY2xlIGN4PSI3MjAiIGN5PSIxODAiIHI9IjUwIiBmaWxsPSIjNzY0QkEyIi8+CjxjaXJjbGUgY3g9IjE4MCIgY3k9IjMyMCIgcj0iNDUiIGZpbGw9IiM2NjdFRUEiLz4KPGNpcmNsZSBjeD0iMzAwIiBjeT0iMzIwIiByPSI0NSIgZmlsbD0iIzc2NEJBMiIvPgo8Y2lyY2xlIGN4PSI0MjAiIGN5PSIzMjAiIHI9IjQ1IiBmaWxsPSIjNjY3RUVBIi8+CjxjaXJjbGUgY3g9IjU0MCIgY3k9IjMyMCIgcj0iNDUiIGZpbGw9IiM3NjRCQTIiLz4KPGNpcmNsZSBjeD0iNjYwIiBjeT0iMzIwIiByPSI0NSIgZmlsbD0iIzY2N0VFQSIvPgo8dGV4dCB4PSI0NTAiIHk9IjEwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzJEMzc0OCIgZm9udC1mYW1pbHk9IkludGVyIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIj5PdXIgVGFsZW50ZWQgVGVhbTwvdGV4dD4KPHRleHQgeD0iNDUwIiB5PSI0MjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM0QTU1NjgiIGZvbnQtZmFtaWx5PSJJbnRlciIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9IjUwMCI+SW5ub3ZhdGl2ZSBQcm9mZXNzaW9uYWxzIERlZGljYXRlZCB0byBFeGNlbGxlbmNlPC90ZXh0Pgo8L3N2Zz4=" 
+                     alt="Our Team" 
+                     class="team-image">
+                <p style="color: #4a5568; margin-top: 3rem; font-size: 1.1rem; line-height: 1.8;">
+                    Our collaborative environment fosters innovation and creativity, enabling our team members to grow professionally while delivering exceptional value to our clients. We believe in continuous learning, knowledge sharing, and maintaining a culture of excellence that drives our success.
+                </p>
+            </div>
+        </section>
+
+        <section class="cta-section fade-in">
+            <h2 style="font-size: 3rem; margin-bottom: 1.5rem; font-weight: 700;">Ready to Transform Your Business?</h2>
+            <p style="font-size: 1.3rem; opacity: 0.95; max-width: 600px; margin: 0 auto 2rem;">Let's discuss how our innovative solutions can drive your success and take your business to the next level</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <p><a href="#">Mobile Development</a></p>
+                    <p><a href="#">Web Development</a></p>
+                    <p><a href="#">Cloud Solutions</a></p>
+                    <p><a href="#">AI & ML</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <p><a href="#">About Us</a></p>
+                    <p><a href="#">Our Team</a></p>
+                    <p><a href="#">Careers</a></p>
+                    <p><a href="#">Contact</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <p><a href="#">Blog</a></p>
+                    <p><a href="#">Case Studies</a></p>
+                    <p><a href="#">Documentation</a></p>
+                    <p><a href="#">Support</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <p><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+                    <p><a href="#"><i class="fab fa-twitter"></i> Twitter</a></p>
+                    <p><a href="#"><i class="fab fa-github"></i> GitHub</a></p>
+                    <p><a href="#"><i class="fab fa-facebook"></i> Facebook</a></p>
+                </div>
+            </div>
+            <hr style="margin: 2rem 0; border: none; height: 1px; background: rgba(255, 255, 255, 0.2);">
+            <p>&copy; 2024 Appleeders Technologies. All rights reserved. | Transforming businesses through innovative software solutions.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced animation observers
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        const slideInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            fadeInObserver.observe(el);
+        });
+
+        document.querySelectorAll('.slide-in-left, .slide-in-right').forEach(el => {
+            slideInObserver.observe(el);
+        });
+
+        // Enhanced interactive effects
+        document.querySelectorAll('.value-item, .mission-card, .vision-card, .service-item, .testimonial-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+                this.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Enhanced counter animation for stats
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const duration = 2000;
+            const stepTime = duration / 100;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                
+                let displayValue = Math.floor(current);
+                if (target === 99) {
+                    element.textContent = displayValue + '%';
+                } else {
+                    element.textContent = displayValue + '+';
+                }
+            }, stepTime);
+        }
+
+        // Trigger counter animations when stats come into view
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const numbers = entry.target.querySelectorAll('.stat-number');
+                    numbers.forEach(num => {
+                        const target = parseInt(num.textContent);
+                        animateCounter(num, target);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroSection = document.querySelector('.hero-section');
+            const rate = scrolled * -0.5;
+            
+            if (heroSection) {
+                heroSection.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Enhanced mobile menu functionality
+        const createMobileMenu = () => {
+            if (window.innerWidth <= 768) {
+                const nav = document.querySelector('nav');
+                const navLinks = document.querySelector('.nav-links');
+                
+                if (!document.querySelector('.mobile-menu-btn')) {
+                    const mobileMenuBtn = document.createElement('button');
+                    mobileMenuBtn.className = 'mobile-menu-btn';
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    mobileMenuBtn.style.cssText = `
+                        background: none;
+                        border: none;
+                        font-size: 1.5rem;
+                        color: #4a5568;
+                        cursor: pointer;
+                        display: block;
+                    `;
+                    
+                    nav.appendChild(mobileMenuBtn);
+                    
+                    mobileMenuBtn.addEventListener('click', () => {
+                        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                        navLinks.style.flexDirection = 'column';
+                        navLinks.style.position = 'absolute';
+                        navLinks.style.top = '100%';
+                        navLinks.style.left = '0';
+                        navLinks.style.width = '100%';
+                        navLinks.style.background = 'white';
+                        navLinks.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+                        navLinks.style.padding = '1rem';
+                    });
+                }
+            }
+        };
+
+        createMobileMenu();
+        window.addEventListener('resize', createMobileMenu);
+    </script>
+</body>
+</html>
